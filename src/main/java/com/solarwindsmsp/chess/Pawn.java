@@ -43,7 +43,34 @@ public class Pawn {
     }
 
     public void Move(MovementType movementType, int newX, int newY) {
-        throw new UnsupportedOperationException("Need to implement Pawn.Move()") ;
+        switch (movementType) {
+            case MOVE:
+                doMoveBasedOnColour(newX, newY);
+                break;
+            case CAPTURE:
+                // Not impelmented
+                break;
+        }
+    }
+
+    private void doMoveBasedOnColour(int newX, int newY) {
+        switch (pieceColor) {
+            case BLACK:
+                if (newY < 0)
+                    return;
+                if (newX != xCoordinate)
+                    return;
+                if (newY == yCoordinate - 1)
+                    yCoordinate = newY;
+                break;
+            case WHITE:
+                if (newY > ChessBoard.MAX_BOARD_HEIGHT)
+                    return;
+                if (newX != xCoordinate)
+                    return;
+                if (newY == yCoordinate + 1)
+                    yCoordinate = newY;
+        }
     }
 
     @Override
