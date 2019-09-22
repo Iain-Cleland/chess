@@ -11,13 +11,14 @@ public class PawnTest {
 
     @Before
     public void setUp() {
-        this.chessBoard = new ChessBoard();
-        this.testSubject = new Pawn(PieceColor.BLACK);
+        chessBoard = new ChessBoard();
+        testSubject = new Pawn(PieceColor.BLACK);
+        testSubject.setChessBoard(chessBoard);
     }
 
     @Test
     public void testChessBoard_Add_Sets_XCoordinate() {
-        this.chessBoard.Add(testSubject, 6, 3, PieceColor.BLACK);
+        chessBoard.Add(testSubject, 6, 3, PieceColor.BLACK);
         Assert.assertEquals(6, testSubject.getXCoordinate());
     }
 
@@ -31,7 +32,7 @@ public class PawnTest {
     @Test
     public void testPawn_Move_IllegalCoordinates_Right_DoesNotMove() {
         chessBoard.Add(testSubject, 6, 3, PieceColor.BLACK);
-        testSubject.Move(MovementType.MOVE, 7, 3);
+        testSubject.move(MovementType.MOVE, 7, 3);
         Assert.assertEquals(6, testSubject.getXCoordinate());
         Assert.assertEquals(3, testSubject.getYCoordinate());
     }
@@ -39,7 +40,7 @@ public class PawnTest {
     @Test
     public void testPawn_Move_IllegalCoordinates_Left_DoesNotMove() {
         chessBoard.Add(testSubject, 6, 3, PieceColor.BLACK);
-        testSubject.Move(MovementType.MOVE, 4, 3);
+        testSubject.move(MovementType.MOVE, 4, 3);
         Assert.assertEquals(6, testSubject.getXCoordinate());
         Assert.assertEquals(3, testSubject.getYCoordinate());
     }
@@ -47,7 +48,7 @@ public class PawnTest {
     @Test
     public void testPawn_Move_LegalCoordinates_Forward_UpdatesCoordinates() {
         chessBoard.Add(testSubject, 6, 3, PieceColor.BLACK);
-        testSubject.Move(MovementType.MOVE, 6, 2);
+        testSubject.move(MovementType.MOVE, 6, 2);
         Assert.assertEquals(6, testSubject.getXCoordinate());
         Assert.assertEquals(2, testSubject.getYCoordinate());
     }

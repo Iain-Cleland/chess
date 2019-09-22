@@ -26,6 +26,9 @@ public class ChessBoard {
     }
 
     public boolean IsLegalBoardPosition(int xCoordinate, int yCoordinate) {
-        return (xCoordinate >= 0 && xCoordinate <= ChessBoard.MAX_BOARD_WIDTH-1) && (yCoordinate >= 0 && yCoordinate <= ChessBoard.MAX_BOARD_HEIGHT-1);
+        return (xCoordinate >= 0
+                && xCoordinate <= ChessBoard.MAX_BOARD_WIDTH - 1)
+                && (yCoordinate >= 0
+                && yCoordinate <= ChessBoard.MAX_BOARD_HEIGHT - 1);
     }
 }

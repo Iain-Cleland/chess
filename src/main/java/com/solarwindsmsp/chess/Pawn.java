@@ -42,32 +42,29 @@ public class Pawn {
         pieceColor = value;
     }
 
-    public void Move(MovementType movementType, int newX, int newY) {
+    public void move(MovementType movementType, int newX, int newY) {
+        if (!chessBoard.IsLegalBoardPosition(newX, newY))
+            return;
+
         switch (movementType) {
             case MOVE:
                 doMoveBasedOnColour(newX, newY);
                 break;
             case CAPTURE:
-                // Not impelmented
-                break;
+                // Not implemented as not required for this test.
         }
     }
 
     private void doMoveBasedOnColour(int newX, int newY) {
+        if (newX != xCoordinate) // Pawn can only move forward in the Y direction for non capture move.
+            return;
+
         switch (pieceColor) {
             case BLACK:
-                if (newY < 0)
-                    return;
-                if (newX != xCoordinate)
-                    return;
                 if (newY == yCoordinate - 1)
                     yCoordinate = newY;
                 break;
             case WHITE:
-                if (newY > ChessBoard.MAX_BOARD_HEIGHT)
-                    return;
-                if (newX != xCoordinate)
-                    return;
                 if (newY == yCoordinate + 1)
                     yCoordinate = newY;
         }
