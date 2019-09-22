@@ -12,7 +12,10 @@ public class ChessBoard {
     }
 
     public void Add(Pawn pawn, int xCoordinate, int yCoordinate, PieceColor pieceColor) {
-        if (xCoordinate < 0 || xCoordinate > MAX_BOARD_WIDTH-1 || yCoordinate < 0 || yCoordinate > MAX_BOARD_HEIGHT-1) {
+        if (xCoordinate < 0
+                || xCoordinate > MAX_BOARD_WIDTH - 1
+                || yCoordinate < 0
+                || yCoordinate > MAX_BOARD_HEIGHT - 1) {
             pawn.setXCoordinate(-1);
             pawn.setYCoordinate(-1);
         } else if (pieces[xCoordinate][yCoordinate] == null) {
