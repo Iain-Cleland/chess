@@ -28,7 +28,8 @@ public class ChessBoard {
         }
     }
 
-    public boolean IsLegalBoardPosition(int xCoordinate, int yCoordinate) {
+    // Not sure if this is for a legal board position for a pawn or it is just to check that the coordinates are within range; I did the latter.
+    public boolean isLegalBoardPosition(int xCoordinate, int yCoordinate) {
         return (xCoordinate >= 0
                 && xCoordinate <= ChessBoard.MAX_BOARD_WIDTH - 1)
                 && (yCoordinate >= 0
